@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-deployment
+  namespace: test-ns
+  labels:
+   type: ci-cd
+   author: intelliqit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+     type: ci-cd
+  template:
+   metadata:
+    name: jenkins-pod
+    labels:
+     type: ci-cd
+   spec:
+    containers:
+     - name: myjenkins
+       image: jenkins/jenkins
+       ports:
+        - containerPort: 8080
+          hostPort: 9090
+...       
+
+
+
+
+
+
