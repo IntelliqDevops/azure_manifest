@@ -8,7 +8,7 @@ metadata:
 spec:
  containers:
   - name: mydb
-    image: redis
+    image: intelliqit/myredis
     volumeMounts:
      - name: myvolume
        mountPath: /data/redis
